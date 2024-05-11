@@ -7,9 +7,7 @@ router.get('/', (req, res) => {
 });
 
 // Rotas de Categorias
-router.get('/categories',(req,res)=>{
-    res.send("Categorias")
-})
+router.get('/admin/categories/new',(req,res) => {res.render('admin/categories/new')})
 
 // Rotas de artigos
 router.get('/articles', (req, res) => {
