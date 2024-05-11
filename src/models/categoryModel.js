@@ -9,6 +9,13 @@ const category   = connection.define('categories', {
         allowNull: false
     }
 })
+/**
+ * Sincroniza o banco de dados com a aplicação, forçando a criação da tabela 
+ * category. 
+ * ATENÇÃO: Execute este comando apenas uma vez.
+ */
+//category.sync({force: true}) 
+
 module.exports = category
 
 /**

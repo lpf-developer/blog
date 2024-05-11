@@ -35,6 +35,10 @@ connection.sync().then(()=>{
     )
 })
 
+// importando tabelas do banco de dados a serem geradas via sequelize
+const category = require('./models/categoryModel')
+const article = require('./models/articleModel')
+
 // servidor
 const PORT = process.env.PORT
 app.listen(PORT, ()=>{

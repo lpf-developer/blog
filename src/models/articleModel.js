@@ -1,5 +1,7 @@
 const sequelize = require('sequelize')
 const connection = require('./database')
+const category = require('./categoryModel')
+
 const article = connection.define('articles', {
     title: {
         type: sequelize.STRING,
@@ -14,6 +16,16 @@ const article = connection.define('articles', {
         allowNull: false
     }
 })
+category.hasMany(article) // Uma categoria tem muitos artigos
+article.belongsTo(category) // Um artigo pertence a uma categoria
+
+/**
+ * Sincroniza o banco de dados com a aplicação, forçando a criação da tabela 
+ * article. 
+ * ATENÇÃO: Execute este comando apenas uma vez.
+ */
+//article.sync({force: true}) 
+
 module.exports = article
 
 /**
