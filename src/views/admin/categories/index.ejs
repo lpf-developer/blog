@@ -3,9 +3,10 @@
 <div class="container">
     <br>
     <h2>Lista de Categorias</h2>
+    <a class="btn btn-success" href="/admin/categories/new">Criar nova categoria</a>
     <hr>
-    <table class="table table-bordered">
-        <thead>
+    <table class="table table-bordered table-striped table-hover table-sm">
+        <thead class="table-secondary">
             <tr>
                 <th>ID</th>
                 <th>TÍTULO</th>
@@ -13,12 +14,16 @@
                 <th>AÇÕES</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-group-divider">
             <% categories.forEach(category => { %>
             <tr>
                 <td><%= category.id %></td>
                 <td><%= category.title %></td>
                 <td><%= category.slug %></td>
+                <td>
+                    <button class="btn btn-warning">Editar</button>
+                    <button class="btn btn-danger">Deletar</button>
+                </td>
             </tr>
             <% }) %>
         </tbody>
