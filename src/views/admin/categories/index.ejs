@@ -14,12 +14,13 @@
             </tr>
         </thead>
         <tbody>
+            <% categories.forEach(category => { %>
             <tr>
-                <td>1</td>
-                <td>Doutrinas Bíblicas</td>
-                <td>doutrinas-biblicas</td>
-                <td></td>
+                <td><%= category.id %></td>
+                <td><%= category.title %></td>
+                <td><%= category.slug %></td>
             </tr>
+            <% }) %>
         </tbody>
     </table>
 </div>

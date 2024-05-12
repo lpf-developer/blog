@@ -9,8 +9,11 @@ router.get('/', (req, res) => {
 });
 
 // Rotas de Categorias
+
+// Cadastro de categorias
 router.get('/admin/categories/new',(req,res) => {res.render('admin/categories/new')})
 
+// Persistir categoria
 router.post('/categories/save',(req,res) => {
     let title = req.body.title
     if(title != undefined){
@@ -24,9 +27,11 @@ router.post('/categories/save',(req,res) => {
         res.redirect('admin/categories/new')}
     }
 )
-
+// Lista de Categorias
 router.get('/admin/categories',(req,res)=>{
-    res.render('admin/categories/index')
+    category.findAll().then(categories =>{
+        res.render('admin/categories/index',{categories: categories})
+    })
 })
 
 // Rotas de artigos
