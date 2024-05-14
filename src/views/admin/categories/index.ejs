@@ -22,7 +22,8 @@
                 <td><%= category.slug %></td>
                 <td>
                     <button class="btn btn-warning">Editar</button>
-                    <form action="/categories/delete" method="post"style='display:inline'>
+                    <form action="/categories/delete" method="post"
+                          style='display:inline' onsubmit="deleteOk(event,this)">
                         <input type="hidden" name="id" value="<%= category.id%>">
                         <button class="btn btn-danger">Deletar</button>
                     </form>
@@ -32,4 +33,11 @@
         </tbody>
     </table>
 </div>
+<script>
+    function deleteOk(event,form){
+        event.preventDefault() // Impede o envio do formulário
+        let result = confirm('Excluir categoria?')
+        if(result) form.submit()
+    }
+</script>
 <%- include ('../../partials/footer.ejs') %>
