@@ -27,6 +27,26 @@ router.post('/categories/save',(req,res) => {
         res.redirect('admin/categories/new')}
     }
 )
+// Excluir Categorias
+router.post("/categories/delete", (req, res) => {
+    var id = req.body.id;
+    if (id != undefined) {
+        if (!isNaN(id)) {
+            category.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect("/admin/categories");
+            });
+        } else {// NÃO FOR UM NÚMERO
+            res.redirect("/admin/categories");
+        }
+    } else { // NULL
+        res.redirect("/admin/categories");
+    }
+});
+
 // Lista de Categorias
 router.get('/admin/categories',(req,res)=>{
     category.findAll().then(categories =>{
